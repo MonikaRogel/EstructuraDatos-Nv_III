@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Proyectos UEA VS CODE\\PrimerParcial\\PrimerParcial.csproj",
+      "projectUniqueName": "D:\\Proyectos UEA VS CODE\\PrimerParcial\\Semana02\\PrimerParcial.csproj",
       "projectName": "PrimerParcial",
-      "projectPath": "D:\\Proyectos UEA VS CODE\\PrimerParcial\\PrimerParcial.csproj",
+      "projectPath": "D:\\Proyectos UEA VS CODE\\PrimerParcial\\Semana02\\PrimerParcial.csproj",
       "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
-      "outputPath": "D:\\Proyectos UEA VS CODE\\PrimerParcial\\obj\\",
+      "outputPath": "D:\\Proyectos UEA VS CODE\\PrimerParcial\\Semana02\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Dell\\AppData\\Roaming\\NuGet\\NuGet.Config"
