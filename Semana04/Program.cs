@@ -18,7 +18,7 @@ class Program
         {
             // Muestra el menú principal
             Console.Clear();
-            Console.WriteLine("==== AGENDA TELEFÓNICA ====");
+            Console.WriteLine("==== AGENDA TELEFÓNICA MONICA====");
             Console.WriteLine("1. Agregar contacto personal");
             Console.WriteLine("2. Agregar contacto profesional");
             Console.WriteLine("3. Agregar contacto de emergencia");
