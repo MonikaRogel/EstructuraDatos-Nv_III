@@ -7,10 +7,8 @@ class Estudiante
     public string Nombres { get; set; }
     public string Apellidos { get; set; }
     public string Direccion { get; set; }
-
     // Array de teléfonos
     public string[] Telefonos { get; set; }
-
     // Constructor
     public Estudiante(string id, string nombres, string apellidos, string direccion, string[] telefonos)
     {
@@ -20,7 +18,6 @@ class Estudiante
         Direccion = direccion;
         Telefonos = telefonos;
     }
-
     // Método para mostrar los datos
     public void MostrarInformacion()
     {
