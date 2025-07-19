@@ -1,0 +1,44 @@
+=== RESUMEN DE ASIGNACIÓN ===
+Asientos ocupados: 30 de 30
+
+Personas que subieron a la atracción:
+Asiento #1: mnica (ID: 1) - Ingreso: 09:42:33
+Asiento #2: oler (ID: 2) - Ingreso: 09:42:42
+Asiento #3: done (ID: 3) - Ingreso: 09:42:49
+Asiento #4: came (ID: 4) - Ingreso: 09:42:56
+Asiento #5: dw (ID: 5) - Ingreso: 09:43:26
+Asiento #6: tr (ID: 6) - Ingreso: 09:43:27
+Asiento #7: yui (ID: 7) - Ingreso: 09:43:28
+Asiento #8: gj (ID: 8) - Ingreso: 09:43:29
+Asiento #9: rwe (ID: 9) - Ingreso: 09:43:29
+Asiento #10: seds (ID: 10) - Ingreso: 09:43:30
+Asiento #11: g (ID: 11) - Ingreso: 09:43:31
+Asiento #12: a (ID: 12) - Ingreso: 09:43:32
+Asiento #13: adw (ID: 13) - Ingreso: 09:43:33
+Asiento #14: asv (ID: 14) - Ingreso: 09:43:35
+Asiento #15: asfecx (ID: 15) - Ingreso: 09:43:36
+Asiento #16: ssg (ID: 16) - Ingreso: 09:43:37
+Asiento #17: grgr (ID: 17) - Ingreso: 09:43:41
+Asiento #18: gdht (ID: 18) - Ingreso: 09:43:42
+Asiento #19: hy (ID: 19) - Ingreso: 09:43:45
+Asiento #20: uju (ID: 20) - Ingreso: 09:43:46
+Asiento #21: dfb (ID: 21) - Ingreso: 09:43:46
+Asiento #22: dfytc (ID: 22) - Ingreso: 09:43:47
+Asiento #23: xgrd (ID: 23) - Ingreso: 09:43:48
+Asiento #24: sesee (ID: 24) - Ingreso: 09:43:49
+Asiento #25: dxgrt (ID: 25) - Ingreso: 09:43:50
+Asiento #26: xbgf (ID: 26) - Ingreso: 09:43:52
+Asiento #27: ntrt (ID: 27) - Ingreso: 09:43:53
+Asiento #28: rt (ID: 28) - Ingreso: 09:43:54
+Asiento #29: thtr (ID: 29) - Ingreso: 09:43:55
+Asiento #30: rgre (ID: 30) - Ingreso: 09:43:56
+
+Personas que quedaron en lista de espera:
+- et (ID: 31, Ingreso: 09:43:59)
+- ryrt (ID: 32, Ingreso: 09:44:00)
+- esrew (ID: 33, Ingreso: 09:44:01)
+- fg (ID: 34, Ingreso: 09:44:02)
+- dr (ID: 35, Ingreso: 09:44:11)
+- rt (ID: 36, Ingreso: 09:44:12)
+- drg (ID: 37, Ingreso: 09:44:12)
+- drg (ID: 38, Ingreso: 09:44:13)
