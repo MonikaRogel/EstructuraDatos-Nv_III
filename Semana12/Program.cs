@@ -161,7 +161,7 @@ namespace TorneoFutbol
                 return;
             }
 
-            Console.WriteLine("\n--- Equipos Registrados ---");
+            Console.WriteLine("\n------ Equipos Registrados ------<<(*_*)>>");
             foreach (var eq in equipos.Values)
                 Console.WriteLine(eq);
         }
