@@ -1,0 +1,45 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <!-- 
+      Tipo de salida: "Exe" significa que este proyecto genera un ejecutable (.exe),
+      en lugar de una librería (.dll). Esto es adecuado para programas de consola.
+    -->
+    <OutputType>Exe</OutputType>
+
+    <!-- 
+      Versión de .NET utilizada. Aquí se especifica .NET 9.0, que corresponde 
+      a la versión más reciente disponible en el entorno actual.
+    -->
+    <TargetFramework>net9.0</TargetFramework>
+
+    <!-- 
+      "ImplicitUsings" habilita los "usings" implícitos, lo que reduce la cantidad
+      de declaraciones repetitivas en el código fuente (por ejemplo, System).
+    -->
+    <ImplicitUsings>enable</ImplicitUsings>
+
+    <!-- 
+      Activa las anotaciones de referencia nulas. Esto ayuda al compilador a 
+      advertir posibles errores de variables nulas (NullReferenceException).
+    -->
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- 
+      Inclusión del archivo de datos "vuelos.txt".
+      Se indica que este archivo debe copiarse automáticamente 
+      al directorio de salida cada vez que se ejecute el programa.
+      
+      Esto evita que el estudiante tenga que mover manualmente el archivo 
+      y garantiza que el sistema de búsqueda de vuelos siempre encuentre 
+      la base de datos ficticia.
+    -->
+    <None Include="vuelos.txt">
+      <!-- "Always" significa que el archivo se copiará en cada compilación/ejecución -->
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
