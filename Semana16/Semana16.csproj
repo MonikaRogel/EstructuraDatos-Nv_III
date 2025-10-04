@@ -2,42 +2,38 @@
 
   <PropertyGroup>
     <!-- 
-      Tipo de salida: "Exe" significa que este proyecto genera un ejecutable (.exe),
-      en lugar de una librería (.dll). Esto es adecuado para programas de consola.
+      OutputType define qué tipo de archivo genera el proyecto.
+      En este caso "Exe" indica que será un ejecutable de consola (.exe).
     -->
     <OutputType>Exe</OutputType>
 
     <!-- 
-      Versión de .NET utilizada. Aquí se especifica .NET 9.0, que corresponde 
-      a la versión más reciente disponible en el entorno actual.
+      Framework objetivo: net9.0 significa que se compilará y ejecutará
+      bajo la plataforma .NET 9.0.
     -->
     <TargetFramework>net9.0</TargetFramework>
 
     <!-- 
-      "ImplicitUsings" habilita los "usings" implícitos, lo que reduce la cantidad
-      de declaraciones repetitivas en el código fuente (por ejemplo, System).
+      Habilita los "usings" implícitos para no repetir 
+      System, Collections, etc., en cada archivo .cs.
     -->
     <ImplicitUsings>enable</ImplicitUsings>
 
     <!-- 
-      Activa las anotaciones de referencia nulas. Esto ayuda al compilador a 
-      advertir posibles errores de variables nulas (NullReferenceException).
+      Activa las anotaciones de referencia nulas.
+      Ayuda al compilador a advertir sobre posibles NullReferenceException.
     -->
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
     <!-- 
-      Inclusión del archivo de datos "vuelos.txt".
-      Se indica que este archivo debe copiarse automáticamente 
-      al directorio de salida cada vez que se ejecute el programa.
-      
-      Esto evita que el estudiante tenga que mover manualmente el archivo 
-      y garantiza que el sistema de búsqueda de vuelos siempre encuentre 
-      la base de datos ficticia.
+      Se incluye el archivo de datos "vuelos.txt".
+      La opción <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      garantiza que se copie automáticamente a la carpeta de salida (bin/Debug/net9.0)
+      cada vez que se ejecute el programa, para que esté disponible en tiempo de ejecución.
     -->
     <None Include="vuelos.txt">
-      <!-- "Always" significa que el archivo se copiará en cada compilación/ejecución -->
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

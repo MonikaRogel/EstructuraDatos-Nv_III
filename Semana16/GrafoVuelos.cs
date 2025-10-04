@@ -7,22 +7,27 @@ namespace Semana16
 {
     // ------------------------------------------------------------
     // Clase GrafoVuelos
-    // Representa una red de vuelos entre ciudades de Ecuador.
-    // Cada ciudad es un nodo y cada vuelo (con su precio) es una arista dirigida.
+    // Representa la red de vuelos nacionales en Ecuador.
+    // Cada ciudad se modela como un nodo y cada vuelo como una arista dirigida
+    // con un costo asociado (precio del boleto).
     // ------------------------------------------------------------
     public class GrafoVuelos
     {
-        // Diccionario que guarda los vuelos disponibles:
+        // Diccionario para almacenar la lista de adyacencia.
         // clave = ciudad de origen
-        // valor = lista de destinos y sus costos
+        // valor = lista de pares (destino, costo del vuelo)
         private Dictionary<string, List<(string destino, int costo)>> adj;
 
+        // Constructor: inicializa la estructura vacía
         public GrafoVuelos()
         {
             adj = new Dictionary<string, List<(string, int)>>();
         }
 
-        // Método para agregar un vuelo desde una ciudad origen a un destino con un costo.
+        // ------------------------------------------------------------
+        // Método: AgregarVuelo
+        // Añade un vuelo al grafo (origen → destino con un costo).
+        // ------------------------------------------------------------
         public void AgregarVuelo(string origen, string destino, int costo)
         {
             if (!adj.ContainsKey(origen))
@@ -31,28 +36,33 @@ namespace Semana16
             adj[origen].Add((destino, costo));
         }
 
-        // Calcula la ruta más barata entre dos ciudades usando el algoritmo de Dijkstra.
+        // ------------------------------------------------------------
+        // Método: RutaMasBarata
+        // Calcula la ruta más barata entre dos ciudades usando Dijkstra.
+        // ------------------------------------------------------------
         public (int costo, List<string> ruta) RutaMasBarata(string origen, string destino)
         {
             return RutaMasBarataIgnorandoAristas(origen, destino, new HashSet<(string, string)>());
         }
 
-        // Implementación interna de Dijkstra con la opción de ignorar aristas específicas.
-        // Esto se usa para poder calcular rutas alternativas.
+        // ------------------------------------------------------------
+        // Método privado: RutaMasBarataIgnorandoAristas
+        // Implementación del algoritmo de Dijkstra.
+        // Se puede pedir que ignore ciertas aristas para calcular rutas alternativas.
+        // ------------------------------------------------------------
         private (int, List<string>) RutaMasBarataIgnorandoAristas(
             string origen, 
             string destino, 
             HashSet<(string, string)> aristasAIgnorar)
         {
-            var dist = new Dictionary<string, int>();   // guarda el costo mínimo acumulado a cada ciudad
-            var prev = new Dictionary<string, string>(); // guarda el "camino" para reconstruir la ruta
-            var cola = new SortedSet<(int costo, string ciudad)>(); // simula una cola de prioridad
+            var dist = new Dictionary<string, int>();
+            var prev = new Dictionary<string, string>();
+            var cola = new SortedSet<(int costo, string ciudad)>();
 
-            // Inicializar todas las distancias como "infinito"
+            // Inicializamos todas las distancias como "infinito"
             foreach (var ciudad in adj.Keys)
                 dist[ciudad] = int.MaxValue;
 
-            // Al origen se llega con costo 0
             dist[origen] = 0;
             cola.Add((0, origen));
 
@@ -61,13 +71,13 @@ namespace Semana16
                 var (costoActual, ciudadActual) = cola.Min;
                 cola.Remove(cola.Min);
 
-                if (ciudadActual == destino) break; // Si llegamos al destino, detenemos la búsqueda
+                if (ciudadActual == destino) break;
                 if (!adj.ContainsKey(ciudadActual)) continue;
 
                 foreach (var (vecino, costoVuelo) in adj[ciudadActual])
                 {
                     if (aristasAIgnorar.Contains((ciudadActual, vecino)))
-                        continue; // si está en la lista de ignorados, lo saltamos
+                        continue;
 
                     int nuevoCosto = costoActual + costoVuelo;
                     if (nuevoCosto < dist[vecino])
@@ -80,11 +90,11 @@ namespace Semana16
                 }
             }
 
-            // Si el destino no fue alcanzado, devolvemos -1
+            // Si no se llegó al destino
             if (dist[destino] == int.MaxValue)
                 return (-1, null);
 
-            // Reconstruimos la ruta desde el destino hacia atrás usando el diccionario "prev"
+            // Reconstrucción de la ruta
             var ruta = new List<string>();
             string actual = destino;
             while (actual != null)
@@ -97,7 +107,10 @@ namespace Semana16
             return (dist[destino], ruta);
         }
 
-        // Busca la ruta principal más barata y además intenta hallar una ruta alternativa.
+        // ------------------------------------------------------------
+        // Método: EncontrarRutaYAlternativa
+        // Calcula la ruta más barata y busca una alternativa distinta.
+        // ------------------------------------------------------------
         public ((int, List<string>) principal, (int, List<string>) alternativa) EncontrarRutaYAlternativa(string origen, string destino)
         {
             var rutaPrincipal = RutaMasBarata(origen, destino);
@@ -122,7 +135,7 @@ namespace Semana16
             return (rutaPrincipal, mejorAlternativa);
         }
 
-        // Compara dos rutas para verificar si son exactamente iguales.
+        // Verifica si dos rutas son exactamente iguales
         private bool EsMismaRuta(List<string> ruta1, List<string> ruta2)
         {
             if (ruta1 == null || ruta2 == null) return false;
@@ -130,7 +143,10 @@ namespace Semana16
             return ruta1.SequenceEqual(ruta2);
         }
 
-        // Carga los vuelos desde un archivo de texto (cada línea = origen,destino,costo).
+        // ------------------------------------------------------------
+        // Método: CargarDesdeArchivo
+        // Lee todos los vuelos desde el archivo de texto (origen,destino,costo).
+        // ------------------------------------------------------------
         public void CargarDesdeArchivo(string rutaArchivo)
         {
             foreach (var linea in File.ReadAllLines(rutaArchivo))
@@ -143,7 +159,10 @@ namespace Semana16
             }
         }
 
-        // Muestra en pantalla todos los vuelos disponibles ordenados alfabéticamente por ciudad y costo.
+        // ------------------------------------------------------------
+        // Método: ListarVuelos
+        // Muestra en pantalla todos los vuelos cargados, ordenados por ciudad y costo.
+        // ------------------------------------------------------------
         public void ListarVuelos()
         {
             Console.WriteLine("<*-*> LISTA COMPLETA DE VUELOS DISPONIBLES <*-*>");
@@ -154,6 +173,16 @@ namespace Semana16
                     Console.WriteLine($" {ciudad} → {destino}: ${costo}");
                 }
             }
+        }
+
+        // ------------------------------------------------------------
+        // Método: TieneVueloDirecto
+        // Indica si existe un vuelo directo entre dos ciudades específicas.
+        // ------------------------------------------------------------
+        public bool TieneVueloDirecto(string origen, string destino)
+        {
+            if (!adj.ContainsKey(origen)) return false;
+            return adj[origen].Any(v => v.destino.Equals(destino, StringComparison.OrdinalIgnoreCase));
         }
     }
 }
